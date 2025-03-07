@@ -30,7 +30,6 @@ public class ProductRepositoryImpl {
         try(Session s= HibernateUtils.getFACTORY().openSession()){
             CriteriaBuilder b= s.getCriteriaBuilder();
             CriteriaQuery<Product> q= b.createQuery(Product.class);
-            @SuppressWarnings("unchecked")
             Root root = q.from(Product.class);
             q.select(root);
             
