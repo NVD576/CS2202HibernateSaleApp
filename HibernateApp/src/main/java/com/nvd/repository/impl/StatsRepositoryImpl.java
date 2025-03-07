@@ -4,16 +4,19 @@
  */
 package com.nvd.repository.impl;
 
+import java.util.List;
+
+import org.hibernate.Session;
+
 import com.nvd.hibernateapp.HibernateUtils;
 import com.nvd.pojo.OrderDetail;
 import com.nvd.pojo.Product;
+
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
-import java.util.List;
-import org.hibernate.Session;
 
 /**
  *
@@ -28,7 +31,9 @@ public class StatsRepositoryImpl {
             Root root = q.from(OrderDetail.class);
             Join< OrderDetail, Product> join = root.join("productId", JoinType.RIGHT);
             q.multiselect(join.get("id"), join.get("name"), b.sum(b.prod(root.get("quantity"), root.get("unitPrice"))));
-            
+            q.groupBy(join.get("id"));
+            q.orderBy(b.desc(b.sum(b.prod(root.get("quantity"), root.get("unitPrice")))));
+            return s.createQuery(q).getResultList();
         }
     }
 }

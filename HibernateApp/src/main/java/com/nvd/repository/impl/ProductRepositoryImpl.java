@@ -4,17 +4,20 @@
  */
 package com.nvd.repository.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.hibernate.Session;
+
 import com.nvd.hibernateapp.HibernateUtils;
 import com.nvd.pojo.Product;
+
 import jakarta.persistence.Query;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import org.hibernate.Session;
 
 /**
  *
@@ -22,10 +25,12 @@ import org.hibernate.Session;
  */
 public class ProductRepositoryImpl {
     private static final int PAGE_SIZE =6;
+    @SuppressWarnings("unchecked")
     public List<Product> getProducts(Map<String, String> params){
         try(Session s= HibernateUtils.getFACTORY().openSession()){
             CriteriaBuilder b= s.getCriteriaBuilder();
             CriteriaQuery<Product> q= b.createQuery(Product.class);
+            @SuppressWarnings("unchecked")
             Root root = q.from(Product.class);
             q.select(root);
             

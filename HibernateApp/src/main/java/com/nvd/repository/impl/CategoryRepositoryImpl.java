@@ -4,17 +4,21 @@
  */
 package com.nvd.repository.impl;
 
+import java.util.List;
+
+import org.hibernate.Session;
+
 import com.nvd.hibernateapp.HibernateUtils;
 import com.nvd.pojo.Category;
+
 import jakarta.persistence.Query;
-import java.util.List;
-import org.hibernate.Session;
 
 /**
  *
  * @author admin
  */
 public class CategoryRepositoryImpl {
+    @SuppressWarnings("unchecked")
     public List<Category> getCates(){
         try(Session s= HibernateUtils.getFACTORY().openSession()){
             Query q= s.createQuery("FROM Category", Category.class);

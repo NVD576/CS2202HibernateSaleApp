@@ -4,6 +4,7 @@ com\nvd\pojo\Comment.class
 com\nvd\pojo\Category.class
 com\nvd\pojo\Product.class
 com\nvd\hibernateapp\HibernateApp.class
+com\nvd\repository\impl\StatsRepositoryImpl.class
 com\nvd\pojo\OrderDetail.class
 com\nvd\pojo\Tag.class
 com\nvd\repository\impl\ProductRepositoryImpl.class

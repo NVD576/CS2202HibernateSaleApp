@@ -35,7 +35,7 @@ public class HibernateUtils {
         props.setProperty(Environment.JAKARTA_JDBC_DRIVER, "com.mysql.cj.jdbc.Driver");
         props.setProperty(Environment.JAKARTA_JDBC_URL, "jdbc:mysql://localhost/saledb");
         props.setProperty(Environment.JAKARTA_JDBC_USER, "root");
-        props.setProperty(Environment.JAKARTA_JDBC_PASSWORD, "root");
+        props.setProperty(Environment.JAKARTA_JDBC_PASSWORD, "Admin@123");
         props.setProperty(Environment.SHOW_SQL, "true");
 
         
