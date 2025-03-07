@@ -1,0 +1,12 @@
+com\nvd\pojo\SaleOrder.class
+com\nvd\pojo\User.class
+com\nvd\pojo\Comment.class
+com\nvd\pojo\Category.class
+com\nvd\pojo\Product.class
+com\nvd\hibernateapp\HibernateApp.class
+com\nvd\pojo\OrderDetail.class
+com\nvd\pojo\Tag.class
+com\nvd\repository\impl\ProductRepositoryImpl.class
+com\nvd\repository\impl\CategoryRepositoryImpl.class
+com\nvd\hibernateapp\HibernateUtils.class
+com\nvd\pojo\ProdTag.class
