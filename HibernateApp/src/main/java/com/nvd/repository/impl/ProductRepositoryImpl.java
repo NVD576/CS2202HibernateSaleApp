@@ -25,7 +25,6 @@ import jakarta.persistence.criteria.Root;
  */
 public class ProductRepositoryImpl {
     private static final int PAGE_SIZE =6;
-    @SuppressWarnings("unchecked")
     public List<Product> getProducts(Map<String, String> params){
         try(Session s= HibernateUtils.getFACTORY().openSession()){
             CriteriaBuilder b= s.getCriteriaBuilder();

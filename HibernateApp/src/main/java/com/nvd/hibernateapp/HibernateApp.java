@@ -3,21 +3,29 @@
  */
 
 package com.nvd.hibernateapp;
-
-import com.nvd.repository.impl.StatsRepositoryImpl;
+import com.nvd.repository.impl.CommentRepositoryImpl;
 /**
  *
  * @author ADMIN
  */
 public class HibernateApp {
 
+    static boolean isNguyenTo(int n){
+        if(n<2) return false;
+        for(int i=2;i<=Math.sqrt(n);i++){
+            if(n%i==0) return false;
+        }
+        return true;
+    }
     public static void main(String[] args) {
-               
-        StatsRepositoryImpl s = new StatsRepositoryImpl();
-        s.statsRevenueByProduct().forEach(o -> {
-            System.out.printf("%d - %s - %d\n", 
-                    o[0], o[1], o[2]);
-        });
+
+        CommentRepositoryImpl c= new CommentRepositoryImpl();
+        c.getComments(1).forEach(p->System.out.println(p.getContent()));
+        // StatsRepositoryImpl s = new StatsRepositoryImpl();
+        // s.statsRevenueByProduct().forEach(o -> {
+        //     System.out.printf("%d - %s - %d\n", 
+        //             o[0], o[1], o[2]);
+        // });
         // CategoryRepositoryImpl s= new CategoryRepositoryImpl();
         // s.getCates().forEach(p->System.out.println(p.getName()+"\n"));
         

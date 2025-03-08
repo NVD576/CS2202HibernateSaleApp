@@ -18,7 +18,6 @@ import jakarta.persistence.Query;
  * @author admin
  */
 public class CategoryRepositoryImpl {
-    @SuppressWarnings("unchecked")
     public List<Category> getCates(){
         try(Session s= HibernateUtils.getFACTORY().openSession()){
             Query q= s.createQuery("FROM Category", Category.class);

@@ -30,7 +30,8 @@ public class StatsRepositoryImpl {
             CriteriaQuery<Object[]> q = b.createQuery(Object[].class);
             Root root = q.from(OrderDetail.class);
             Join< OrderDetail, Product> join = root.join("productId", JoinType.RIGHT);
-            q.multiselect(join.get("id"), join.get("name"), b.sum(b.prod(root.get("quantity"), root.get("unitPrice"))));
+            q.multiselect(join.get("id"), join.get("name"),
+                b.sum(b.prod(root.get("quantity"), root.get("unitPrice"))));
             q.groupBy(join.get("id"));
             q.orderBy(b.desc(b.sum(b.prod(root.get("quantity"), root.get("unitPrice")))));
             return s.createQuery(q).getResultList();
